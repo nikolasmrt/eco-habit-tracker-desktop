@@ -1,27 +1,27 @@
-# 🌱 Eco-Vida: Sustainability Analytics Dashboard
+# ♻️ Eco-Vida: Desktop Habit & Sustainability Tracker
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
-![Data](https://img.shields.io/badge/Data-Visualization-yellow)
-![OOP](https://img.shields.io/badge/Pattern-OOP-red)
+![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![PySide6](https://img.shields.io/badge/PySide6-Qt6-green?style=for-the-badge&logo=qt&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
-## 📋 Sobre o Projeto
-Software focado na conscientização e monitoramento de hábitos sustentáveis. A aplicação permite que usuários registrem atividades diárias, calculando o impacto ecológico e gerando visualizações gráficas de progresso.
+Software Desktop orientado a objetos para conscientização, monitoramento e análise de consumo e hábitos sustentáveis diários. A aplicação permite que usuários registrem atividades por categoria, calculem métricas de impacto ecológico, visualizem gráficos estatísticos e gerem relatórios automatizados em PDF.
 
-O foco técnico do projeto foi a aplicação de **Programação Orientada a Objetos (POO)** para modelagem de dados e a geração dinâmica de gráficos estatísticos.
+---
 
-## ⚙️ Arquitetura e Lógica
-* **Gamification Engine:** Algoritmo próprio para cálculo de "Pontuação Sustentável" baseado nos registros do usuário.
-* **Data Visualization:** Geração de gráficos de barras e pizza para análise de categorias (Reciclagem, Energia, Água).
-* **Persistência de Dados:** Armazenamento local de histórico de atividades.
+## 🏛️ Arquitetura do Sistema
 
-## 🛠️ Tecnologias Utilizadas
-* **Core:** Python 3
-* **GUI:** PySide6
-* **Plotagem Gráfica:** Matplotlib / QtCharts
-* **Lógica:** Estruturas de Dados e POO
+A aplicação adota uma arquitetura modular em camadas, separando as responsabilidades da **Interface Gráfica (PySide6/Qt)**, **Regras de Negócio/Cálculos** e **Persistência Local de Dados (SQLite3)**.
 
-## 🚀 Como Executar
-```bash
-git clone [https://github.com/nikolasmrt/projeto-ecovida-sustentabilidade](https://github.com/nikolasmrt/projeto-ecovida-sustentabilidade)
-pip install -r requirements.txt
-python app.py
+```mermaid
+graph TD
+    A[main.py - Entry Point] --> B[QStackedWidget - Manager de Telas]
+    B --> C[ui/login.py - Autenticação]
+    B --> D[ui/register.py - Cadastro]
+    B --> E[ui/sistema.py - Dashboard Principal]
+    
+    E --> F[ui/graph_window.py - Visualização Matplotlib]
+    E --> G[ui/dicas_sustentaveis_app.py - Engine de Recomendações]
+    
+    C & D & E & G --> H[database/connection.py - Context Manager]
+    H --> I[(eco_habit_tracker.db - SQLite3)]
