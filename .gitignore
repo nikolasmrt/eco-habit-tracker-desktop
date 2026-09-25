@@ -3,20 +3,44 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Database files
-*.db
-*.sqlite3
+# C extensions
+*.so
 
-# Environment variables & virtualenvs
+# Packages
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# Virtual Environments
 .env
 .venv/
+env/
 venv/
 ENV/
+env.bak/
+venv.bak/
 
-# Output documents & images
+# Banco de Dados Local 
+*.db
+*.sqlite
+*.sqlite3
+
+# Artefatos Gerados 
 *.pdf
-grafico_temp_*.png
+temp_chart_*.png
 
-# IDEs
+# IDEs e Editores
 .vscode/
 .idea/
+*.swp
+*.swo
