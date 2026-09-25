@@ -5,23 +5,29 @@
 ![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
-Software Desktop orientado a objetos para conscientização, monitoramento e análise de consumo e hábitos sustentáveis diários. A aplicação permite que usuários registrem atividades por categoria, calculem métricas de impacto ecológico, visualizem gráficos estatísticos e gerem relatórios automatizados em PDF.
+Software Desktop orientado a objetos desenvolvido em Python, estruturado sob os princípios de **Clean Architecture**, focado na conscientização, monitoramento e análise de consumo e hábitos sustentáveis diários. A aplicação permite o registo seguro de atividades por categoria, cálculo automatizado de impacto ecológico (gamificação), visualização de gráficos estatísticos e exportação de relatórios profissionais em PDF.
 
 ---
 
 ## 🏛️ Arquitetura do Sistema
 
-A aplicação adota uma arquitetura modular em camadas, separando as responsabilidades da **Interface Gráfica (PySide6/Qt)**, **Regras de Negócio/Cálculos** e **Persistência Local de Dados (SQLite3)**.
+O sistema adota uma separação estrita de responsabilidades em camadas, garantindo baixo acoplamento e alta testabilidade entre a Interface Gráfica (PySide6), as Regras de Negócio e a Persistência Local (SQLite3).
 
 ```mermaid
 graph TD
-    A[main.py - Entry Point] --> B[QStackedWidget - Manager de Telas]
-    B --> C[ui/login.py - Autenticação]
-    B --> D[ui/register.py - Cadastro]
-    B --> E[ui/sistema.py - Dashboard Principal]
+    A[main.py - Bootstrapper] --> B[src/ui/main_window.py]
+    B --> C[src/ui/views/login_view.py]
+    B --> D[src/ui/views/register_view.py]
+    B --> E[src/ui/views/dashboard_view.py]
     
-    E --> F[ui/graph_window.py - Visualização Matplotlib]
-    E --> G[ui/dicas_sustentaveis_app.py - Engine de Recomendações]
+    E --> F[src/ui/views/analytics_view.py]
+    E --> G[src/ui/views/tips_view.py]
     
-    C & D & E & G --> H[database/connection.py - Context Manager]
-    H --> I[(eco_habit_tracker.db - SQLite3)]
+    C & D --> H[src/repositories/user_repository.py]
+    E --> I[src/repositories/habit_repository.py]
+    
+    E --> J[src/services/score_service.py]
+    E --> K[src/services/pdf_report_service.py]
+    
+    H & I --> L[src/database/connection.py]
+    L --> M[(eco_habit_tracker.db - SQLite)]
