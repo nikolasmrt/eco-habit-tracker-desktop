@@ -4,13 +4,13 @@ from PySide6.QtGui import QIcon, QFont
 from PySide6.QtCore import Qt, Slot 
 
 # classes de UI reescritas em PySide6
-from login import Login
-from register import Register
-from sistema import Sistema
+from ui.login import Login
+from ui.register import Register
+from ui.sistema import Sistema
 import os
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-icon_path = os.path.join(current_dir, "eco_icon.ico")
+icon_path = os.path.join(current_dir, "assets/eco_icon.ico")
 
 
 class MainApp(QMainWindow):

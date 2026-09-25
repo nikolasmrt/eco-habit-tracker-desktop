@@ -2,11 +2,12 @@ from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QHBoxLayout, Q
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QIcon, QFont
 
-from connection import registrar_usuario
+from database.connection import registrar_usuario
 import os
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-icon_path = os.path.join(current_dir, "eco_icon.ico")
+ui_dir = os.path.dirname(os.path.abspath(__file__))
+current_dir = os.path.dirname(ui_dir)
+icon_path = os.path.join(current_dir, "assets", "eco_icon.ico")
 
 
 class Register(QWidget):

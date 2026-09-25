@@ -14,19 +14,20 @@ except ImportError:
     print("Aviso: PySide6-Charts não encontrado. A funcionalidade de gráfico será desativada.")
 
 
-from graph_window import GraphWindow
+from ui.graph_window import GraphWindow
 
-from connection import registrar_habito, limpar_dados, zerar_tempos, recomendar_habito, calcular_pontuacao, exportar_para_pdf, obter_dados_grafico_por_categoria
+from database.connection import registrar_habito, limpar_dados, zerar_tempos, recomendar_habito, calcular_pontuacao, exportar_para_pdf, obter_dados_grafico_por_categoria
 
 import webbrowser
 import subprocess
 import os
 import sys
 
-site_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dicas_sustentaveis_app.py")
+site_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ui/dicas_sustentaveis_app.py")
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-icon_path = os.path.join(current_dir, "eco_icon.ico")
+ui_dir = os.path.dirname(os.path.abspath(__file__))
+current_dir = os.path.dirname(ui_dir)
+icon_path = os.path.join(current_dir, "assets", "eco_icon.ico")
 
 print(f"Caminho do ícone (sistema.py): {icon_path}")
 

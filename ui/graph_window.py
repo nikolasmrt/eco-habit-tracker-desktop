@@ -16,7 +16,7 @@ if not QTCHARTS_AVAILABLE:
     from io import BytesIO
 
 
-from connection import obter_dados_grafico_por_categoria
+from database.connection import obter_dados_grafico_por_categoria
 
 class GraphWindow(QDialog):
     def __init__(self, usuario_id, parent=None):

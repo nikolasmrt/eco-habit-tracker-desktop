@@ -1,13 +1,22 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*$py.class
+
+# Database files
 *.db
-.env
 *.sqlite3
-*.log
-*.exe
-*.spec
-assets/
-dist/
-build/
+
+# Environment variables & virtualenvs
+.env
+.venv/
+venv/
+ENV/
+
+# Output documents & images
+*.pdf
+grafico_temp_*.png
+
+# IDEs
+.vscode/
+.idea/
